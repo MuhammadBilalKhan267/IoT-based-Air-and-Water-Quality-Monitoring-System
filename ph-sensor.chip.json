@@ -1,0 +1,22 @@
+{
+  "name": "ph-sensor",
+  "author": "Bilal Khan",
+  "pins": [
+    "",
+    "",
+    "",
+    "VCC",
+    "GND",
+    "AO"
+  ],
+  "controls": [
+    {
+      "id": "voltage",
+      "label": "Value",
+      "type": "range",
+      "min": 0,
+      "max": 5.0,
+      "step": 0.1
+    }
+  ]
+}

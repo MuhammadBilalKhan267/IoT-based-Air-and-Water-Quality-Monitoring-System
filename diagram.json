@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "author": "Bilal Khan",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-c3-devkitm-1", "id": "esp", "top": 57.3, "left": -61.38, "attrs": {} },
+    { "type": "chip-ph-sensor", "id": "chip1", "top": 116.22, "left": -214.19, "attrs": {} },
+    { "type": "chip-turbidity-sensor", "id": "chip2", "top": 58.62, "left": -214.19, "attrs": {} },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1",
+      "top": -105.3,
+      "left": -168.6,
+      "attrs": { "humidity": "56.5", "temperature": "74.8" }
+    },
+    { "type": "chip-mq135", "id": "chip4", "top": 164.22, "left": -214.19, "attrs": {} },
+    { "type": "wokwi-lcd1602", "id": "lcd1", "top": -44.57, "left": 92.8, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "pot1", "top": -135.7, "left": 105.4, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "chip1:A", "esp:4", "green", [ "h0" ] ],
+    [ "chip2:A", "esp:3", "green", [ "h0" ] ],
+    [ "dht1:SDA", "esp:2", "green", [ "v9.6", "h67.3", "v86.4" ] ],
+    [ "chip4:AO", "esp:1", "green", [ "h38.4", "v-96" ] ],
+    [ "chip2:AO", "esp:3", "green", [ "h19.2", "v-9.6" ] ],
+    [ "chip1:AO", "esp:0", "green", [ "h19.2", "v-19.2" ] ],
+    [ "pot1:SIG", "lcd1:V0", "green", [ "v9.6", "h-77.2", "v163.2", "h77.1" ] ],
+    [ "lcd1:RS", "esp:4", "green", [ "v0" ] ],
+    [ "lcd1:E", "esp:5", "green", [ "v0" ] ],
+    [ "lcd1:D4", "esp:6", "green", [ "v0" ] ],
+    [ "lcd1:D5", "esp:7", "green", [ "v57.6", "h-201.5" ] ],
+    [ "lcd1:D6", "esp:8", "green", [ "v0" ] ],
+    [ "lcd1:D7", "esp:9", "green", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
